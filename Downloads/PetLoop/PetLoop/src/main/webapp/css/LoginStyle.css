@@ -1,0 +1,128 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 oct. 2024, 1:38:04 a. m.
+    Author     : Nicole
+*/
+/* General styles */
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+/* Return Button */
+.return {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.return a {
+    color: #333;
+    font-size: 7vh;
+    text-decoration: none;
+}
+
+.return a:hover {
+    color: orange;
+}
+
+/* Form Section */
+section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 15vh;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input Boxes */
+.inputbox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.inputbox input {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.inputbox input:focus {
+    border-color: orange;
+}
+
+.inputbox label {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 14px;
+    background-color: #fff;
+    padding: 0 5px;
+    color: #666;
+    pointer-events: none;
+}
+
+
+/* Login Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+/* Register Link */
+.register p {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.register a {
+    color: orange;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+

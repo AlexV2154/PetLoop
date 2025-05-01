@@ -1,0 +1,562 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 oct. 2024, 3:01:44 p. m.
+    Author     : Nicole
+*/
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --bright-yellow-crayola: hsl(36, 94%, 57%);
+  --portland-orange: hsl(15, 84%, 57%);
+  --battleship-gray: hsl(0, 0%, 53%);
+  --silver-chalice: hsl(0, 0%, 70%);
+  --spanish-gray: hsl(0, 0%, 60%);
+  --sonic-silver: hsl(208, 7%, 46%);
+  --raisin-black: hsl(228, 6%, 17%);
+  --eerie-black: hsl(210, 3%, 13%);
+  --bittersweet: hsl(9, 96%, 69%);
+  --light-gray: hsl(0, 0%, 80%);
+  --platinum: hsl(0, 0%, 91%);
+  --amber: hsl(45, 100%, 51%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --onyx: hsl(220, 2%, 24%);
+
+  /**
+   * typography
+   */
+
+  --ff-bangers: 'Bangers', cursive;
+  --ff-carter_one: 'Carter One', cursive;
+  --ff-nunito_sans: 'Nunito Sans', sans-serif;
+
+  --fs-1: 6.5rem;
+  --fs-2: 3.2rem;
+  --fs-3: 2.4rem;
+  --fs-4: 2rem;
+  --fs-5: 1.8rem;
+  --fs-6: 1.5rem;
+  --fs-7: 1.4rem;
+  --fs-8: 1rem;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 40px;
+
+  /**
+   * shadow
+   */
+
+  --shadow-1: 0 8px 16px hsla(0, 0%, 0%, 0.15);
+  --shadow-2: 0 8px 8px hsla(0, 0%, 0%, 0.2);
+
+  /**
+   * radius
+   */
+
+  --radius-4: 4px;
+  --radius-10: 10px;
+
+  /**
+   * transition
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-nunito_sans);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+:focus-visible { outline-offset: 4px; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 15px; }
+
+.section { padding-block: var(--section-padding); }
+
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.h1,
+.h2,
+.h3 { line-height: 1.1; }
+
+.h1 {
+  color: var(--white);
+  font-family: var(--ff-bangers);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-400);
+  letter-spacing: 1px;
+}
+
+.h2,
+.h3 { color: var(--eerie-black); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-3); }
+
+.btn {
+  background-color: var(--black);
+  color: var(--white);
+  max-width: max-content;
+  padding: 8px 25px;
+  font-weight: var(--fw-700);
+  border-radius: 50px;
+  transition: var(--transition-1);
+}
+
+
+
+.section-title {
+  text-align: center;
+  margin-block-end: 30px;
+}
+
+.section-title .span {
+  display: inline;
+  color: var(--portland-orange);
+}
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.has-scrollbar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+  padding-block-end: 20px;
+  margin-block-end: -20px;
+}
+
+.scrollbar-item {
+  min-width: 100%;
+  scroll-snap-align: start;
+}
+
+.has-scrollbar::-webkit-scrollbar { height: 10px; }
+
+.has-scrollbar::-webkit-scrollbar-track {
+  outline: 2px solid var(--portland-orange);
+  border-radius: var(--radius-10);
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-10);
+  background-color: var(--portland-orange);
+  border: 2px solid var(--white);
+}
+
+.has-scrollbar::-webkit-scrollbar-button { width: calc(25% - 30px); }
+
+.grid-list {
+  display: grid;
+  gap: 30px;
+}
+
+.w-100 { width: 100%; }
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+.action-btn.user { display: none; }
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  padding-block: 20px;
+  z-index: 4;
+}
+
+.header.active {
+  position: fixed;
+  box-shadow: var(--shadow-1);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.nav-toggle-btn {
+  font-size: 30px;
+  transition: var(--transition-1);
+}
+
+.nav-toggle-btn.active .menu-icon,
+.nav-toggle-btn .close-icon { display: none; }
+
+.nav-toggle-btn .menu-icon,
+.nav-toggle-btn.active .close-icon { display: block; }
+
+.logo {
+  font-family: var(--ff-carter_one);
+  font-size: 3rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.header .action-btn {
+  position: relative;
+  font-size: 22px;
+  transition: var(--transition-1);
+}
+
+.header .btn-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--portland-orange);
+  color: var(--white);
+  font-size: var(--fs-8);
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50px;
+}
+
+.nav-toggle-btn:is(:hover, :focus),
+.header .action-btn:is(:hover, :focus) { transform: scale(1.1); }
+
+.navbar {
+  position: fixed;
+  top: 85px;
+  left: -320px;
+  bottom: 0;
+  background-color: var(--white);
+  max-width: 320px;
+  width: 100%;
+  padding: 20px 10px;
+  box-shadow: var(--shadow-2);
+  transition: 0.25s var(--cubic-out);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar.active {
+  transform: translateX(320px);
+  transition-timing-function: var(--cubic-in);
+}
+
+.navbar-link {
+  color: var(--eerie-black);
+  font-size: var(--fs-6);
+  padding: 10px 15px;
+}
+
+.navbar-action-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: var(--sonic-silver);
+  color: var(--white);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+
+/*-------------*\
+formulario
+\*------------*/
+
+/* Estilo general para el contenedor del formulario */
+.contact-form {
+  background-color: #fff; /* Fondo blanco para el formulario */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  max-width: 600px;
+  margin: 100px auto;
+}
+
+/* Estilo del título del formulario */
+.contact-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #ff7f00; /* Color naranja */
+  font-family: 'Bangers', cursive; /* Fuente estilizada */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 3px; /* Espaciado entre letras */
+}
+
+/* Estilo de los grupos de formulario */
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+/* Estilo de las etiquetas */
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #333; /* Color neutro */
+}
+
+/* Estilo de los campos de entrada */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff7f00; /* Color naranja al enfocar */
+}
+
+
+/* Estilo del botón de envío */
+.contact-form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f00; /* Color naranja */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo del botón de envío en estado de hover */
+.contact-form button:hover {
+  background-color: #e68a00; /* Naranja más oscuro */
+  transform: translateY(-2px);
+}
+
+.swal-title {
+    font-size: 24px; /* Tamaño de fuente más grande para el título */
+    color: #4CAF50; /* Color para el título */
+}
+
+.swal-content {
+    font-size: 18px; /* Tamaño de fuente para el contenido */
+    color: #333; /* Color para el contenido */
+}
+
+
+
+
+/*-----------------------------------*\
+  #API WHATSAPP
+\*-----------------------------------*/
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+.float:hover {
+	text-decoration: none;
+	color: #25d366;
+  background-color:#fff;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+@media (min-width: 575px) {
+
+  /**
+   * HERO
+   */
+
+  .hero {
+    display: grid;
+    padding-inline-start: 20px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+
+
+}
+
+
+
+
+
+@media (min-width: 768px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 9rem;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .scrollbar-item { min-width: calc(33.33% - 20px); }
+
+  .grid-list { grid-template-columns: repeat(3, 1fr); }
+
+
+
+  /**
+   * HERO
+   */
+
+  .hero {
+    aspect-ratio: 1512 / 784;
+    padding-inline-start: 10%;
+  }
+
+
+ 
+}
+
+
+
